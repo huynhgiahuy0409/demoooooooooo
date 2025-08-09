@@ -1,0 +1,25 @@
+.rule-management-container {
+    width: 100%;
+}
+
+.rule-management-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 10px;
+}
+
+.rule-management-header h2 {
+    margin-bottom: 0;
+}
+
+.ant-table-wrapper {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ant-form-item-label {
+    font-weight: 500;
+}

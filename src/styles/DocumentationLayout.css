@@ -1,0 +1,113 @@
+.documentation-title {
+    text-align: center;
+    color: #1890ff;
+    margin: 20px 0;
+    font-size: 32px;
+}
+
+.documentation-container {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 120px); /* Trừ đi chiều cao của header và footer */
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+}
+
+.documentation-sidebar {
+    width: 250px;
+    background-color: #f5f5f5;
+    border-right: 1px solid #e8e8e8;
+    position: fixed;
+    top: 64px; /* Chiều cao của header */
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 16px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #1890ff;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.3s;
+}
+
+.sidebar-nav li:hover {
+    background-color: #e6f7ff;
+    color: #1890ff;
+}
+
+.sidebar-nav li.active {
+    background-color: #e6f7ff;
+    color: #1890ff;
+    border-right: 3px solid #1890ff;
+}
+
+.documentation-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    margin-left: 250px; /* Bằng với chiều rộng của sidebar */
+}
+
+.documentation-section {
+    margin-bottom: 40px;
+    scroll-margin-top: 70px; /* Để khi scroll đến section, nó không bị che bởi header */
+}
+
+@media (max-width: 768px) {
+    .documentation-container {
+        flex-direction: column;
+    }
+
+    .documentation-sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 64px;
+        z-index: 100;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .documentation-content {
+        margin-left: 0;
+        margin-top: 200px; /* Để nội dung không bị che bởi sidebar */
+        padding-top: 20px;
+    }
+
+    .sidebar-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-nav li {
+        flex: 0 0 auto;
+        border-bottom: none;
+        border-right: 1px solid #f0f0f0;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .documentation-title {
+        margin-bottom: 220px; /* Để tiêu đề không bị che bởi sidebar */
+    }
+}

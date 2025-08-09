@@ -1,0 +1,32 @@
+/* Styles for tables */
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.config-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.config-table th,
+.config-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.config-table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+}
+
+.config-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.config-table tr:hover {
+    background-color: #f1f1f1;
+}

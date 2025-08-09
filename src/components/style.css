@@ -1,0 +1,50 @@
+.jsoneditor-react-container {
+    width: 100%;
+}
+
+.jsoneditor-text {
+    height: 20px;
+}
+
+.jsre {
+    height: 450px;
+}
+
+.jsoneditor-container {
+    /* This is the wrapper div from your React component. */
+    border-radius: 8px;
+    overflow: hidden; /* This is crucial to clip the inner content to the rounded corners. */
+    /* Optional: Add a border to make the radius more visible. */
+    border: 1px solid #4a4a4a;
+    background-color: transparent;
+}
+
+/* 2. Change the background color of the editor's content area */
+.jsoneditor {
+    /* This is the main class applied by the library to the editor itself. */
+    background: #2c2c2e; /* Example: A dark background color */
+}
+
+/* 3. Adjust text colors for readability on a dark background */
+.jsoneditor-tree,
+.jsoneditor-field,
+.jsoneditor-value,
+div.jsoneditor-readonly {
+    color: #ffffff; /* Light text color */
+}
+
+/* 4. Style the textarea used in 'code' and 'text' modes */
+.jsoneditor textarea.jsoneditor-text {
+    background-color: #2c2c2e;
+    color: #ffffff;
+}
+
+/* 5. Style the menu bar to match the dark theme */
+.jsoneditor-menu {
+    background-color: #3b3b3d;
+    border-bottom: 1px solid #4a4a4a;
+}
+.jsoneditor-menu > button,
+.jsoneditor-menu > .jsoneditor-modes > button {
+    color: #ffffff;
+}

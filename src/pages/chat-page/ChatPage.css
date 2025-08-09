@@ -1,0 +1,357 @@
+.chat-container {
+    display: flex;
+    height: calc(100vh - 112px); /* Accounting for the header and layout padding */
+    width: 100%;
+    gap: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-area {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* For WebKit browsers (Chrome, Safari, Opera) */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: transparent;
+    height: 100%;
+}
+
+.editor-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #fff;
+    transition: flex 0.3s ease;
+}
+
+.editor-panel.full-width {
+    flex: 1 0 100%;
+}
+
+.rule-container {
+    flex: 1;
+    overflow-y: auto;
+    height: fit-content;
+    margin-bottom: 8px;
+}
+
+.rule-list {
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.rule-list-header {
+    font-weight: 500;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.rule-item {
+    cursor: pointer;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.rule-item:hover {
+    background-color: #f0f2f5;
+}
+
+.rule-item.selected {
+    background-color: #e6f7ff;
+    border-left: 3px solid #1890ff;
+}
+
+.rule-item.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.input-container {
+    border-top: 1px solid #f0f0f0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.message {
+    margin-bottom: 24px;
+    max-width: 80%;
+    position: relative;
+}
+
+.user-message {
+    margin-left: auto;
+    background-color: #1890ff;
+    color: white;
+    border-radius: 8px 0 8px 8px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 6px rgba(24, 144, 255, 0.2);
+}
+
+.ai-message {
+    background-color: #fff;
+    border-radius: 0 8px 8px 8px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.message-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: #8c8c8c;
+}
+
+.message-avatar {
+    margin-right: 8px;
+}
+
+.editor-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.markdown-container {
+    flex: 1;
+    height: calc(100vh - 200px); /* Adjust based on your layout */
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.open-md-button {
+    margin-top: 8px;
+}
+
+/* History sidebar */
+.history-sidebar {
+    width: 320px;
+    background-color: #fff;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+    flex-shrink: 0;
+    display: none;
+    height: 100%;
+    overflow-y: auto;
+    margin-right: 8px;
+}
+
+.history-sidebar.visible {
+    display: block;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #fafafa;
+}
+
+.history-new-prompt {
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #f9f9f9;
+}
+
+.history-collapse {
+    height: calc(100% - 108px); /* Account for header and new prompt button */
+    overflow-y: auto;
+}
+
+.history-meta {
+    margin-top: 4px;
+}
+
+.history-prompt {
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.history-rule {
+    color: #1890ff;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+/* Overrides for Ant Design components */
+.ant-btn-primary {
+    background-color: #1890ff;
+}
+
+.ant-avatar {
+    color: #fff;
+    background-color: #1890ff;
+}
+
+/* Custom styling for markdown editor */
+.w-md-editor {
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.w-md-editor-toolbar {
+    border-bottom: 1px solid #f0f0f0 !important;
+    background-color: #fafafa !important;
+}
+
+.w-md-editor-text {
+    padding: 16px !important;
+}
+
+.w-md-editor-preview {
+    padding: 16px !important;
+    box-shadow: none !important;
+}
+
+/* Full height content */
+.app-content {
+    padding: 0 !important;
+    height: 100% !important;
+    overflow: hidden;
+}
+
+/* Full size for content within the layout */
+.site-layout .ant-layout-content {
+    height: calc(100vh - 64px);
+    overflow: auto;
+}
+
+/* Make sure footer doesn't show in chat page */
+.app-footer {
+    display: none;
+}
+
+/* New styles for JSON editors and history */
+.history-section {
+    margin-bottom: 12px;
+}
+
+.history-description {
+    margin-top: 4px;
+    white-space: pre-wrap;
+}
+
+.history-json {
+    margin-top: 4px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    padding: 8px;
+    max-height: 150px;
+    overflow: auto;
+}
+
+.history-json pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+/* Loading overlay styles */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(2px);
+}
+
+.loading-content {
+    background-color: #fff;
+    padding: 32px 48px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.loading-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1890ff;
+    margin-bottom: 16px;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #1890ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Prompts container for managing selected state */
+.prompts-container {
+    --selected-rule-id: '';
+}
+
+/* Target all prompt items and apply conditional styling */
+.prompts-container .ant-prompts-item {
+    transition: all 0.3s ease;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+}
+
+/* Apply selected styling when the item's data-key matches the selected rule */
+.prompts-container .ant-prompts-item:hover {
+    border-color: #40a9ff;
+    box-shadow: 0 2px 4px rgba(24, 144, 255, 0.1);
+}
+
+/* This is a fallback approach - we'll use JavaScript to add a class dynamically */
+.prompts-container .ant-prompts-item.selected {
+    background-color: #e6f7ff !important;
+    border-color: #1890ff !important;
+    border-width: 2px !important;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.2) !important;
+}
+
+.prompts-container .ant-prompts-item.selected:hover {
+    background-color: #d1edff !important;
+    border-color: #40a9ff !important;
+}

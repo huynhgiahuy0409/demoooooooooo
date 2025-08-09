@@ -1,0 +1,56 @@
+.about-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-page h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 10px;
+}
+
+.about-page ul {
+    margin-bottom: 30px;
+}
+
+.author-info {
+    margin-top: 40px;
+}
+
+.author-info h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.author-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+.author-header {
+    background-color: #428fdc;
+    color: white;
+    padding: 12px 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.author-content {
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.author-content p {
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.author-content strong {
+    color: #333;
+    margin-right: 5px;
+}

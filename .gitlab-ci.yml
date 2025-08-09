@@ -1,0 +1,37 @@
+include:
+  - project: 'devops/momo-projects-template/ci-template'
+    ref: "master"
+    file: 'node-js-single-module-without-kaniko/.gitlab-ci.yml'
+
+variables:
+  BASE_DOCKER_IMAGE: "${NODE_JS_20}"
+  USING_NEXUS_REPO: "YES"
+  DELIVERY_TO: "S3CLOUD"
+  PURGE_CACHE: "YES"
+  PROD_BUILD: "YES"
+  DEV_BUILD: "YES"
+  GIT_FLOW: "YES"
+  PACKAGE_INSTALL_COMMAND: "npx @fs-web-kits/micro-app-rules init && npm install --frozen-lockfile"
+  UAT: "NO"
+  AFTER_BUCKET_NAME: "portal-platform/itba-doc-app"
+   # "build" if using CRA, another if not use webpack
+  NODEJS_OUTPUT_FOLDER: "dist"
+  # dev config
+  DEV_CLOUD_PROVIDER: "AWS"
+  DEV_PATH_TO_SECRET: "v1/s3-project-config/sf/dev_sf_fs_static"
+  DEV_PURGE_CACHE_HOST: "dev-fsstatic.momocdn.net"
+  # prod config
+  PROD_CLOUD_PROVIDER: "AWS"
+  PROD_PATH_TO_SECRET: "v1/s3-project-config/sf/prod_sf_fs_static"
+  PROD_PURGE_CACHE_HOST: "fsstatic.momocdn.net"
+  # alway running
+  DEV_BUILD_COMMANDS_1: "npm install && npm run build"
+  # skip when you don't build uat env
+  # UAT_BUILD_COMMANDS_1: "mkdir -p ./dist && cp ./src/uat/* ./dist/"
+  # skip when you don't build prod env
+  PROD_BUILD_COMMANDS_1: "npm install && npm run build"
+
+.tags_executor:
+  image: $BASE_DOCKER_IMAGE
+  tags:
+    - k8s-runner
